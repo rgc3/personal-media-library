@@ -7,3 +7,7 @@ function get_item_html($id,$item) {
    . "</a></li>";
   return $output;
 }
+
+function array_category($catalog,$category) {
+  
+}
