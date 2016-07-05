@@ -9,5 +9,16 @@ function get_item_html($id,$item) {
 }
 
 function array_category($catalog,$category) {
-  
+  if ($category == null) {
+    return array_keys($catelog);
+  }
+  $output = array();
+
+  foreach ($catalog as $id => $item) {
+    if (strtolower($category) == strtolower($item["category"])) {
+      $output[] = $id;
+    }
+  }
+
+  return $output;
 }
