@@ -21,7 +21,7 @@ include("includes/header.php"); ?>
 
 <div class="section page">
   <div class="wrapper">
-    <div class="breadcrumbs">
+    <div class="breadcrumb">
       <a href="catalog.php">Full Catalog</a>
       &gt; <a href="catalog.php?cat=<?php echo strtolower($item["category"]); ?>">
       <?php echo $item["category"]; ?></a>
