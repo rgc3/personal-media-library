@@ -424,7 +424,7 @@ if (isset($error_message)) {
             </tr>
         <tr>
           <th><label for="details">Suggest Item Details</label></th>
-          <td><textarea name="details" id="details"><?php if (isset($details)) { echo $details; } ?></textarea></td>
+          <td><textarea name="details" id="details"><?php if (isset($details)) { echo htmlspecialchars($_POST["$details"]); } ?></textarea></td>
         </tr>
         //Honeypot Span Filter, users will not see field but robots will fill it in
         <tr style="display:none">
