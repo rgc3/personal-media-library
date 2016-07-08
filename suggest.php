@@ -51,6 +51,7 @@ $section = "suggest";
 
 include("includes/header.php"); ?>
 
+// Suggest Form
 <div class="section page">
   <div class="wrapper">
     <h1>Suggest a Media Item</h1>
@@ -58,6 +59,7 @@ include("includes/header.php"); ?>
       echo "<p>Thanks for your email! I&rsquo;ll check out your suggestion shortly!</p>"
     } else { ?>
     <p>If you think there is something I&rsquo;m missing, let me know! Complete the form to send me an email.</p>
+
     <form method="post" action="suggest.php">
       <table>
         <tr>
@@ -67,6 +69,47 @@ include("includes/header.php"); ?>
         <tr>
           <th><label for="email">Email</label></th>
           <td><input type="text" id="email" name="email"/></td>
+        </tr>
+        <tr>
+          <th><label for="category">Category</label></th>
+          <td>
+            <select id="category" name="category"/>
+              <option value="">Select One</option>
+              <option value="Books">Book</option>
+              <option value="Movies">Movie</option>
+              <option value="Music">Music</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th><label for="title">Title</label></th>
+          <td><input type="text" id="title" name="title"/></td>
+        </tr>
+        <tr>
+          <th><label for="format">Format</label></th>
+          <td>
+            <select id="format" name="format"/>
+              <option value="">Select One</option>
+              <optgroup label="Books">
+                <option value="Audio">Audio</option>
+                <option value="Ebook">Ebook</option>
+                <option value="Hardback">Hardback</option>
+                <option value="Paperback">Paperback</option>
+              </optgroup>
+              <optgroup label="Movies">
+                <option value="Blu-ray">Blu-ray</option>
+                <option value="DVD">DVD</option>
+                <option value="Streaming">Streaming</option>
+                <option value="VHS">VHS</option>
+              </optgroup>
+              <optgroup label="Music">
+                <option value="Cassette">Cassette</option>
+                <option value="CD">CD</option>
+                <option value="MP3">MP3</option>
+                <option value="Vinyl">Vinyl</option>
+              </optgroup>
+            </select>
+          </td>
         </tr>
         <tr>
           <th><label for="details">Suggest Item Details</label></th>
@@ -83,7 +126,6 @@ include("includes/header.php"); ?>
     </form>
     <?php } ?>
   </div>
-
 </div>
 
 	<?php include("includes/footer.php"); ?>
