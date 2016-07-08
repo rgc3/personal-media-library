@@ -16,15 +16,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
   }
 
-  echo "<pre>";
+  require("includes/phpmailer/class.phpmailer.php");
+
+  $mail = new PHPMailer;
+
+  if (!$mail->ValidateAddress($email)) {
+    echo "Invalid Email Address";
+    exit;
+  }
+
   $email_body = "";
   $email_body .= "Name " . $name . "\n";
   $email_body .= "Email " . $email . "\n";
   $email_body .= "Details " . $details . "\n";
-  echo $email_body;
-  echo "</pre>";
 
-  //To Do: Send Email
+  $mail->setFrom($email, $name);
+  $mail->addAddress('rgc3dev@gmail.com', 'Robert Cunningham'); // Add a recipient
+
+  $mail->isHTML(false);                                  // Set email format to HTML
+
+  $mail->Subject = 'Personal Media Library Suggestion from ' . $name;
+  $mail->Body    = $email_body;
+
+  if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+    exit;
+  }
   header("location:suggest.php?status=thanks");
 }
 
