@@ -1,6 +1,6 @@
 <?php
-include("includes/data.php");
 include("includes/functions.php");
+$catalog = full_catalog_array();
 
 $pageTitle = "Personal Media Library";
 $section = null;

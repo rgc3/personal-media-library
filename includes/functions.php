@@ -1,4 +1,18 @@
 <?php
+function full_catalog_array() {
+  include("connection.php");
+
+  try {
+    $results = $db->query("SELECT title, category, img FROM Media");
+    echo "Retrieve Results";
+  } catch (Exception $e) {
+    echo "Unable to retrieve results";
+    exit;
+  }
+
+  $catalog = $results->fetchAll();
+  return $catalog;
+}
 function get_item_html($id,$item) {
   $output = "<li><a href='#'><img src='"
    . $item["img"] . "' alt='"
